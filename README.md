@@ -4,7 +4,31 @@ The AI Command Language (ACL) is a specialized syntax designed to streamline com
 
 This repository serves as the definitive source of truth for all ACL definitions.
 
+## 🚀 Quick Reference Chart
+
+| Command | Action | One-Liner |
+| :--- | :--- | :--- |
+| **`-ab`** | **Absorb** | Save a brief note or preference for future reference. |
+| **`--ab`** | **Context** | Provide essential background for the current task. |
+| **`---ab`** | **Important** | Significant instruction that must be read before acting. |
+| **`----ab`** | **Critical** | Strict, non-negotiable rule or system constraint. |
+| **`-----ab`** | **Core Truth** | Immutable fact about the user's identity or system. |
+| **`-do`** | **Execute** | Just run the command/code. No chat, no fluff. |
+| **`-plan`** | **Think** | Output a step-by-step plan before coding. |
+| **`-fix`** | **Debug** | Analyze the error and apply the fix directly. |
+| **`-wow`** | **Aesthetics** | Make the UI look premium, modern, and high-end. |
+| **`-silent`** | **Quiet** | Output *only* the final result or file content. |
+| **`-cheat`** | **Reference** | Provide a concise cheat sheet or reference guide. |
+| **`-why`** | **Deep Dive** | Explain the philosophy and trade-offs of the solution. |
+| **`-simple`** | **EL15** | Explain like I'm 15 using analogies. |
+| **`-quiz`** | **Test Me** | Verify understanding with a question or challenge. |
+| **`-next`** | **Level Up** | Suggest the next logical advanced step to learn. |
+| **`-nl`** | **New Lang** | Add a new term or definition to our shared language. |
+| **`-secure`** | **Audit** | Scan for secrets, vulnerabilities, and unsafe config. |
+| **`-sc`** | **Status** | Quick health check (use `---sc` for deep scan). |
+
 ---
+
 
 ## 1. Memory Flags (`-ab`)
 
@@ -171,6 +195,15 @@ Flags for system health, definitions, and language expansion.
 1.  `"-nl 'The Portal' is my Next.js app"` -> *AI creates a glossary entry mapping "The Portal" to the specific codebase.*
 2.  `"-nl 'Deep Check' means running all test suites"` -> *AI updates its definition of what a deep check entails.*
 3.  `"-nl 'Standup' is at 10 AM EST"` -> *AI records this team routine.*
+
+### `-secure` (SECURITY AUDIT)
+**Meaning:** "Perform a security audit. Scan for secrets, vulnerabilities, and unsafe configurations."
+**Usage:** Before pushing code or deploying.
+
+**Examples:**
+1.  `"Check this file for passwords -secure"` -> *AI scans for API keys, passwords, and tokens.*
+2.  `"Verify the docker container -secure"` -> *AI checks for running as root and exposed ports.*
+3.  `"Audit the git history -secure"` -> *AI looks for accidentally committed secrets.*
 
 ### `-sc` (STATUS CHECK)
 **Meaning:** "Verify system health."
