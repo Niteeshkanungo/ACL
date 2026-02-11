@@ -19,7 +19,9 @@ The AI Command Language (ACL) is a specialized syntax designed to streamline com
 | **`-do` ⚡** | **Execute** | Just run the command/code. No chat, no fluff. |
 | **`-docs` 📚** | **Docs** | Generate READMEs, JSDoc, or comments only. |
 | **`-draft` 📝** | **Draft** | Give me a rough version. Speed over perfection. |
+| **`-EL{N}` 🎂** | **Age-Match** | Explain like I'm N years old. e.g. `-EL5`, `-EL10`, `-EL15`. |
 | **`-fix` 🔧** | **Debug** | Analyze the error and apply the fix directly. |
+| **`-fric` 🤝** | **Friction** | Pause. We both must understand before we proceed. |
 | **`-next` 📈** | **Level Up** | Suggest the next logical advanced step to learn. |
 | **`-nl` 🗣️** | **New Lang** | Add a new term or definition to our language. |
 | **`-opt` 🚀** | **Optimize** | Make it faster, leaner, and more efficient. |
@@ -31,7 +33,7 @@ The AI Command Language (ACL) is a specialized syntax designed to streamline com
 | **`-secure` 🔐** | **Audit** | Scan for secrets, vulnerabilities, and unsafe config. |
 | **`-sh` 🐚** | **Script** | Output as a single, runnable shell script. |
 | **`-silent` 🔇** | **Quiet** | Output *only* the final result or file content. |
-| **`-simple` 👶** | **EL15** | Explain like I'm 15 using analogies. |
+| **`-simple` 👶** | **EL15** | Explain like I'm 15 using analogies. (Shortcut for `-EL15`) |
 | **`-test` 🧪** | **Test** | Write unit tests and edge-case scenarios for this. |
 | **`-ui` 🖼️** | **UX Focus** | Focus on the user journey and intuitiveness. |
 | **`-why` 💡** | **Deep Dive** | Explain the philosophy and trade-offs. |
@@ -60,7 +62,19 @@ Sorted alphabetically for rapid lookup.
 - **`-do` ⚡ (EXECUTE)**: Action over talk. Minimal chat.
 - **`-docs` 📚 (DOCUMENT)**: Metadata and explanation focus.
 - **`-draft` 📝 (DRAFT)**: Rough version, rapid iteration.
+- **`-EL{N}` 🎂 (AGE-MATCH)**: Explain at the level of an N-year-old. The number controls complexity:
+  - `-EL5`: Kindergarten. Use toys, animals, and "imagine you have a box of crayons" analogies.
+  - `-EL10`: Elementary. Simple but introduce real terms. "A server is like a librarian..."
+  - `-EL15`: Teenager. Real analogies, light technical language. "Think of an API like a waiter..."
+  - `-EL25`: Adult beginner. Full technical terms with clear definitions.
+  - `-simple` is a shortcut for `-EL15`.
 - **`-fix` 🔧 (DEBUG)**: Identify and resolve errors.
+- **`-fric` 🤝 (FRICTION)**: Full stop. Before writing any code or making changes:
+  1. AI explains what it understands the problem to be.
+  2. AI proposes the approach in plain language.
+  3. User confirms or corrects.
+  4. Only THEN does AI proceed.
+  This flag exists because building together means learning together. No blind code dumps.
 - **`-nl` 🗣️ (NEW LANGUAGE)**: Expanding the ACL vocabulary.
 - **`-opt` 🚀 (OPTIMIZE)**: Performance and efficiency tuning.
 - **`-plan` 🗺️ (THINK)**: Strategy before implementation.
@@ -81,7 +95,9 @@ Sorted alphabetically for rapid lookup.
 Flags for "Growth Mode" and teaching.
 
 - **`-cheat` 📋 (REFERENCE)**: Concise reference sheets.
+- **`-EL{N}` 🎂 (AGE-MATCH)**: Dynamically adjust explanation depth. See Action section for details.
+- **`-fric` 🤝 (FRICTION)**: Collaborative checkpoint — mutual understanding before action.
 - **`-next` 📈 (ADVANCE)**: The logical next steps for growth.
 - **`-quiz` 🎓 (CHALLENGE)**: Verifying knowledge retention.
-- **`-simple` 👶 (SIMPLIFY)**: Analogies and first principles.
+- **`-simple` 👶 (SIMPLIFY)**: Analogies and first principles. (Shortcut for `-EL15`)
 - **`-why` 💡 (PHILOSOPHY)**: Rationale and trade-offs.
