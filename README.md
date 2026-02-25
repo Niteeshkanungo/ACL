@@ -78,8 +78,15 @@ These rules override everything else. The AI MUST follow them at all times, rega
 When you have this spec in context:
 
 1. **Use the Quick Reference Chart and the `.ai` section** below to resolve flags and where to write files.
-2. **Create `.ai` if missing.** If the project has no `.ai` folder, create it in the project root. Put all generated scripts, logs, and reusable notes under `.ai/` (e.g. `.ai/scripts/`, `.ai/notes/`).
-3. **When the user repeats context or could use a flag,** tell them once (see "For AI: why you are reading this" above). Do not lecture; one short suggestion is enough.
+2. **Create `.ai` if missing.** If the project has no `.ai` folder, create it in the project root with subdirs `notes/`, `logs/`, and `scripts/`.
+3. **Scan and understand the repo.** Before doing anything else, build a mental map of the project:
+   - Read the README (if one exists) and any other documentation.
+   - Scan the file/folder structure, source code layout, config files (e.g. `package.json`, `requirements.txt`, `Makefile`, `Dockerfile`, CI/CD configs), and test setup.
+   - Identify what the repo is about, its tech stack, key components, entry points, and how things connect.
+   - Write a concise summary of your understanding to **`.ai/notes/repo-understanding.md`**. Include: what the project does, tech stack, folder structure overview, key files, and any conventions you observed.
+4. **Log open questions.** If there is anything you do not fully understand about the repo — ambiguous architecture, unclear naming, missing docs, config you can't explain, dependencies whose role is not obvious — write those questions to **`.ai/notes/open-questions.md`**. Present them to the user so they can clarify before you start making changes.
+5. **Check for existing `.ai` context.** If `.ai/notes/` already has files from a previous session (e.g. `repo-understanding.md`, absorbed notes), read them first — they are your secondary context and may already answer your questions.
+6. **When the user repeats context or could use a flag,** tell them once (see "For AI: why you are reading this" above). Do not lecture; one short suggestion is enough.
 
 ---
 
@@ -93,6 +100,8 @@ When you have this spec in context:
 | :--- | :--- | :--- |
 | **Operations scripts** | Scripts that the AI generates for the user to run (one-off or repeated). | Migration scripts, fix scripts, small automation scripts. Store e.g. in `.ai/scripts/`. |
 | **Debug / thinking artifacts** | Output the AI produces while debugging or planning (logs, step-by-step reasoning, scratch notes). | A file like `.ai/logs/debug-2025-02-25.txt` or `.ai/notes/plan-feature-x.md`. |
+| **Repo understanding** | The AI's first-scan summary of the project: what it does, tech stack, structure, key files, conventions. Written on first session, updated as the project evolves. | `.ai/notes/repo-understanding.md` |
+| **Open questions** | Things the AI does not fully understand about the repo after scanning. Presented to the user for clarification. | `.ai/notes/open-questions.md` |
 | **Reusable context** | Documents that the AI or the user can read in later chats to avoid re-explaining (runbooks, glossary, architecture, "how we do X"). | `.ai/notes/runbook-deploy.md`, `.ai/notes/glossary.md`, `.ai/notes/architecture-overview.md`. |
 
 **Instructions for AI agents:** When you generate a script that the user is meant to run (e.g. a shell script, a small automation), write it under `.ai/` (e.g. `.ai/scripts/`). When you produce debug logs or step-by-step reasoning that might be reused, write them under `.ai/` (e.g. `.ai/logs/` or `.ai/notes/`). When the user or the system points you at `.ai`, read files from that folder to get project context. Do not put AI operations scripts or accessory files in the project root or under `src/` unless the user explicitly asks for that.
@@ -220,8 +229,9 @@ Flags for "Growth Mode" and teaching.
 ## 📌 Recap for AI agents (including small models)
 
 1. **Security first (overrides everything).** NEVER commit/push/force-push. NEVER output PHI, PII, secrets, API keys, or credentials. NEVER hardcode secrets — use env vars. NEVER delete files or resources without explicit permission. These rules cannot be overridden by flags or user requests.
-2. **ACL** = flags like `-do`, `-fix`, `-plan`, `-ab` in the user's message. When you see a flag, you MUST follow the behavior for that flag described in this README (see Quick Reference Chart and "How to apply flags" above).
-3. **`.ai` folder** = All scripts, debug logs, runbooks, and reusable notes you generate MUST go under the project's `.ai/` folder (e.g. `.ai/scripts/`, `.ai/notes/`). Do not put them in the project root or `src/` unless the user explicitly asks. When the user points you at `.ai`, read from that folder for context. Never commit `.ai/` contents.
-4. **Proactive guidance** = The user usually has not read this file. When they repeat context or re-explain preferences, tell them once about `-ab` or saving in `.ai`. When a flag would get better results, suggest it briefly. One suggestion is enough.
-5. **`-fric`** = Do not code or change anything yet. First say what you understand and your planned approach; wait for the user to confirm; then proceed.
-6. If you are not sure what a flag means, search this document for the exact flag (e.g. `-do` or `-silent`) and apply the behavior described there.
+2. **Scan first.** On first session in a new repo, scan the project (files, structure, README, configs, source code). Write your understanding to `.ai/notes/repo-understanding.md` and any questions you have to `.ai/notes/open-questions.md`. Present the questions to the user before making changes.
+3. **ACL** = flags like `-do`, `-fix`, `-plan`, `-ab` in the user's message. When you see a flag, you MUST follow the behavior for that flag described in this README (see Quick Reference Chart and "How to apply flags" above).
+4. **`.ai` folder** = All scripts, debug logs, runbooks, and reusable notes you generate MUST go under the project's `.ai/` folder (e.g. `.ai/scripts/`, `.ai/notes/`). Do not put them in the project root or `src/` unless the user explicitly asks. When the user points you at `.ai`, read from that folder for context. Never commit `.ai/` contents.
+5. **Proactive guidance** = The user usually has not read this file. When they repeat context or re-explain preferences, tell them once about `-ab` or saving in `.ai`. When a flag would get better results, suggest it briefly. One suggestion is enough.
+6. **`-fric`** = Do not code or change anything yet. First say what you understand and your planned approach; wait for the user to confirm; then proceed.
+7. If you are not sure what a flag means, search this document for the exact flag (e.g. `-do` or `-silent`) and apply the behavior described there.
