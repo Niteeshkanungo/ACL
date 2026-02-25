@@ -3,7 +3,7 @@
 > **If you are a human:** Copy the line below and paste it into Cursor (or Antigravity). That's it — you're done.
 
 ```
-Follow https://github.com/Niteeshkanungo/ai_lang
+Follow https://github.com/Niteeshkanungo/ACL
 ```
 
 > Everything below this point is for the AI. You don't need to read any further.
