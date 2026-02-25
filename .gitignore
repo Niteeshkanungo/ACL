@@ -1,3 +1,6 @@
+# AI operations and secondary context (scripts, debug output, runbooks, etc.)
+.ai/
+
 ### AL ###
 #Template for AL projects for Dynamics 365 Business Central
 #launch.json folder
